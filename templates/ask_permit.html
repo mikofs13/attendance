@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav >
+            <a href="/" class="logo">
+                <img  class="logo-img" src="{% static "images/logo.jpg" %}" alt="" style="border-radius: 50%; "/>
+              </a>
+               
+                <div class="link-wrapper">
+                    <a class="link hover-2" href=""></a>
+                </div>
+                <div class="link-wrapper">
+                    <a class="link hover-2" href="{% url 'ask-permit' %}">Ask permission</a>
+                </div>
+                <div class="link-wrapper">
+                    <a class="link hover-2" href="{% url "permissions-page" %}">Permissions</a>
+                </div>
+                <div class="link-wrapper">
+                  <a class="link hover-2" href="{% url "logout" %}">Log out</a>
+                </div>
+
+                <div class="container" id="ham" >
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+        </nav>
+        <div class="overlay" id="myNav">
+            <div class="overlay-content">
+                
+                    <a class="link hover-3" href="/">Home</a>
+                    <a class="link hover-3" href="{% url 'ask-permit' %}">Ask Permisssion</a>
+    
+                    <a class="link hover-3" href="{% url 'permissions-page' %}">Permissions</a>
+                  <a class="link hover-3" href="{% url "logout" %}">Log out</a>
+
+            </div>
+
+        
+    </header>
+    <main>  
+        <form action="" method="post" enctype="multipart/form-data" class="main-form">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn-submit" type="submit">Submit</button>
+
+           
+        </form>
+    </main>
+    <footer>
+        <nav>
+         <!--  <a href="/" class="logo">
+            <img class="logo-img" src="{% static "/" %}" alt="" />
+          </a> -->
+  
+          <div class="link-wrapper">
+            <a class="link hover-2" href="/">Home</a>
+          </div>
+          <div class="link-wrapper">
+            <a class="link hover-2" href='{% url "ask-permit" %}'>Ask Permissions</a>
+          </div>
+          <div class="link-wrapper">
+            <a class="link hover-2" href="{% url "permissions-page" %}">Permissions</a>
+          </div>
+          <div class="link-wrapper">
+            <a class="link hover-2" href="{% url "logout" %}">Log out</a>
+          </div>
+          
+        </nav>
+        <div class="copy-rights" >  <p>&copy; 2024 Neway Challenge Academy. All rights reserved.</p></div>
+        
+  
+      </footer>
+    <script src="{% static 'js/index.js' %}" ></script>
+
+</body>
+</html>

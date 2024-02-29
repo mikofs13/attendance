@@ -1,0 +1,47 @@
+:root{
+    --COLOR-DEF: #72a276;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    padding: 2rem;
+    box-shadow: 0px 1px 5px var(--COLOR-DEF);
+    border-radius: 10px;
+}
+
+.btn-submit{
+    padding: 0.9rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    display: block;
+    background-color: #8da890;
+    width: 100%;
+    border: none;
+    transition: all 200ms;
+}
+
+.btn-submit:hover{
+    opacity: 0.8;
+}
+
+/* .upper{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+} */
+
+.upper input{
+    padding: 0.6rem;
+    border-radius: 20px;
+    outline: none;
+    border: 1px solid gray;
+    font-size: 1rem;
+    
+}

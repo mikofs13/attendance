@@ -1,0 +1,126 @@
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--     <link rel="stylesheet" href="{% static 'css/styles.css' %}" /> -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <title>Home</title>
+    <style></style>
+  </head>
+  <body>
+    
+    {% if user %}
+    <header>
+      <nav>
+        <a href="/" class="logo">
+          <img  class="logo-img" src="{% static "images/logo.jpg" %}" alt="" style="border-radius: 50%; "/>
+        </a>
+
+        <div class="link-wrapper">
+          <a class="link hover-2" href="/">Home</a>
+        </div>
+        <div class="link-wrapper">
+          <a class="link hover-2" href="{% url 'ask-permit' %}">Ask Permissions</a>
+        </div>
+        <div class="link-wrapper">
+          <a class="link hover-2" href="{% url 'permissions-page' %}">Permissions</a>
+        </div>
+        <div class="link-wrapper">
+          <a class="link hover-2" href="{% url "logout" %}">Log out</a>
+        </div>
+        <div class="container" id="ham" >
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+      </div>
+      </nav>
+      <div class="overlay" id="myNav">
+        <div class="overlay-content">
+            
+                <a class="link hover-3" href="/">Home</a>
+                <a class="link hover-3" href="{% url 'ask-permit' %}">Ask Permisssion</a>
+
+                <a class="link hover-3" href="{% url 'permissions-page' %}">Permissions</a>
+                <a class="link hover-3" href="{% url "logout" %}">Log out</a>
+            
+        </div>
+    </div>
+    </header>
+
+    <main>
+      <section class="header" id="home">
+        <h2 style="text-align: center;" >Welcome to Neway Challenge Academy Absence Request Portal!</h2>
+        <p>Easily request permission for a day off with just a few simple steps.</p>
+      </section>
+      <hr>
+      <section class="request" id="request">
+        <h2>Request Absence</h2>
+        <p style="margin-bottom: 1rem;" >Follow the steps below to request permission for a day off:</p>
+        <ol>
+          <li>Please go to the <a 
+            style="text-decoration: underline;"
+            href="{% url 'ask-permit' %}">Ask permission</a> page.</li>
+          <li>Fill out the absence request form with your information and reason for absence.</li>
+          <li>Attach any necessary documentation (e.g., doctor's note, family emergency details).</li>
+          <li>Submit the form for review by the school administration.</li>
+        </ol>
+      </section>
+      <hr>
+      <section id="about">
+        <h2>Rules and Regualtions</h2>
+        <ol>
+          <li>Any kind of illegal document will immedialely result in suspension.</li>
+          <li>Your request will be reviewed by the admin and you will recieve an email.</li>
+          <li>The email that is sent contains a document that needs to be printed. </li>
+          <li>You can use the document to show your teachers and staff members which they will immediately approve your request. </li>
+          <li>The permission letter is only legible for 7 days after the day it is sent.</li>
+          <li>Only 2 requested are allowed per month.</li>
+        </ol>
+      </section>
+      <hr>
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <p style="text-align: center; margin: 10px;">Have questions or need assistance? Contact us:</p>
+        <p style="text-align: center;" >Email: <a href="mailto:michaelfeleke13@gmail.com">NewayChallengeAcademy@gmail.com</a></p>
+      </section>
+    </main>
+    <footer>
+      <nav>
+       <!--  <a href="/" class="logo">
+          <img class="logo-img" src="{% static "/" %}" alt="" />
+        </a> -->
+
+        <div class="link-wrapper">
+          <a class="link hover-2" href="/">Home</a>
+        </div>
+        <div class="link-wrapper">
+          <a class="link hover-2" href='{% url "ask-permit" %}'>Ask Permissions</a>
+        </div>
+        <div class="link-wrapper">
+          <a class="link hover-2" href="{% url "permissions-page" %}">Permissions</a>
+        </div>
+        <div class="link-wrapper">
+          <a class="link hover-2" href="{% url "logout" %}">Log out</a>
+        </div>
+        
+      </nav>
+      <div class="copy-rights" >  <p>&copy; 2024 Neway Challenge Academy. All rights reserved.</p></div>
+      
+
+    </footer>
+
+
+    <script src='{% static "js/index.js" %}'></script>
+    {% else %}
+    <main style="height:100vh; display:flex; justify-content:center; align-items:center;" >
+      <h1>Please <a href="{% url "login" %}" >Login</a> first</h1>
+      <a style="text-decoration: underline;" href="{% url "login" %}" >Login</a>
+
+    </main>
+    {% endif %}
+    
+  </body>
+</html>
+

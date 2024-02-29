@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/lists.css' %}" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% if request.user.is_authenticated %}
+    <header>
+      <nav>
+        <a href="/" class="logo">
+          <img  class="logo-img" src="{% static "images/logo.jpg" %}" alt="" style="border-radius: 50%; "/>
+        </a>
+
+        <div class="link-wrapper">
+          <a class="link hover-2" href="/">Home</a>
+        </div>
+        <div class="link-wrapper">
+          <a class="link hover-2" href="{% url "ask-permit" %}">Ask Permissions</a>
+        </div>
+        <div class="link-wrapper">
+          <a class="link hover-2" href="{% url "permissions-page" %}">Permissions</a>
+        </div>
+        <div class="link-wrapper">
+          <a class="link hover-2" href="{% url "logout" %}">Log out</a>
+        </div>
+        <div class="container" id="ham" >
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+      </div>
+      </div>
+      <div class="overlay" id="myNav">
+        <div class="overlay-content">
+            
+                <a class="link hover-3" href="/">Home</a>
+                <a class="link hover-3" href="{% url 'ask-permit' %}">Ask Permisssion</a>
+                <a class="link hover-3" href="{% url 'permissions-page' %}">Permissions</a>
+                <a class="link hover-3" href="{% url "logout" %}">Log out</a>
+            
+        </div>
+    </header>
+    
+    
+      {% if permissions %}
+      <main>
+        <ul class="ul-list">
+          <li class="lists" >
+            <span>No</span>
+            <span>Is approved</span>
+            <span>Requested At At</span>
+          <li>
+        {% for permission in permissions %}
+        <li class="lists">
+          <span>{{permission}} </span> 
+          <span><span class="{% if permission.is_Approved %}approved{% else %}not-approve{% endif %}">{{permission.is_Approved}}</span></span>
+          <span>{{permission.created_At}}</span>
+        </li>
+
+          {% endfor %}
+        </ul>
+        </main>
+      {% else %}
+      <main style="" >  
+      <h1>You dont have any permissions<h1>
+
+      </main>
+      {% endif %}
+      
+      
+
+    <footer style="" >
+      <nav>
+       <!--  <a href="/" class="logo">
+          <img class="logo-img" src="{% static "/" %}" alt="" />
+        </a> -->
+
+        <div class="link-wrapper">
+          <a class="link hover-2" href="/">Home</a>
+        </div>
+        <div class="link-wrapper">
+          <a class="link hover-2" href="{% url 'ask-permit' %}">Ask Permissions</a>
+        </div>
+        <div class="link-wrapper">
+          <a class="link hover-2" href="{% url 'permissions-page' %}">Permissions</a>
+        </div>
+        <div class="link-wrapper">
+          <a class="link hover-2" href="{% url "logout" %}">Log out</a>
+        </div>
+      </nav>
+      <div class="copy-rights" >  <p>&copy; 2024 Neway Challenge Academy. All rights reserved.</p></div>
+      
+
+    </footer>
+    {% endif %}
+    <script src="{% static 'js/index.js' %}" ></script>
+  </body>
+</html>

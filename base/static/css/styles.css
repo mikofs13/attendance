@@ -1,0 +1,330 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: signika,sans-serif;;
+}
+:root{
+    --COLOR-DEF: #72a276;
+}
+
+
+header {
+    background-color: #72a276;
+    padding: 1rem;
+    width: 100%;
+    border-bottom: 2px solid black;
+    
+}
+body{
+    display: flex;
+    
+    flex-direction: column;
+    
+}
+footer{
+    
+    background-color: var(--COLOR-DEF);
+    width: 100%;
+    border-top: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    
+}
+section h2{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+header nav{
+    background-color: var(--COLOR-DEF);
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    height: 100%;
+}
+footer > nav{
+    display: flex;
+    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.copy-rights{
+    display: block;
+    background-color: var(--COLOR-DEF);
+    text-align: center;
+
+}
+.logo-img{
+    display: block;
+    width: 5rem;
+}
+.link {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    padding: 10px 0;
+    color: black;
+}
+.link-wrapper {
+    position: relative;
+    display: block;
+    padding: 20px 0;
+}
+
+.hover-2:hover {
+    &:after {
+        transform: scaleX(1);    
+    }
+}
+.hover-2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0);
+    background-color: black;
+    transition: transform 0.3s;
+}
+
+
+
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+    z-index: 100;
+    display: none;
+    
+  }
+  
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  /* Rotate first bar */
+  .change .bar1 {
+    background-color: rgb(255, 255, 255);
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+  
+  /* Fade out the second bar */
+  .change .bar2 {
+    opacity: 0;}
+  
+  /* Rotate last bar */
+  .change .bar3 {
+    background-color: rgb(255, 255, 255);
+    transform: translate(0, -11px) rotate(45deg);
+  }
+
+.nav2{
+    display: none;
+}
+
+.nav3{
+    display: contents;
+
+    position:absolute;
+    
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+  
+}
+.ul-lists{
+    padding: 1rem;
+    list-style-type: none;
+}
+.lists{
+    margin: 1rem;
+    list-style-type: none;
+}
+
+/* @media  (max-width: 650px) {
+    nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1rem;
+    }
+    .link-wrapper{
+        display: none;
+    }
+    .container{
+        display: block;
+    }
+
+    
+  } */
+
+main{
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #b9cebb;
+
+
+}
+.main-form{
+    
+    width: 50%;
+    margin-top: 20px;
+    box-shadow: 0px 0px 15px 0.5px var(--COLOR-DEF);
+    border-radius: 5px;
+    padding: 1rem;
+    
+}
+.main-form-header {
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-area > textarea{
+    resize: none;
+    height: 35vh;
+    width: 100%;
+    outline: none;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+label{
+    display: block;
+}
+.attachment > input {
+    margin: 10px 0px 10px 0px;
+}
+@media  (max-width: 650px) {
+    header nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1rem;
+    }
+    header .link-wrapper{
+        display: none;
+    }
+    header .container{
+        display: block;
+    }
+
+    
+  }
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  }
+.overlay1 {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+    height: 100%;
+    width: 100%;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.8); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+  
+  /* Position the content inside the overlay */
+  .overlay-content {
+    position: relative;
+    top: 25%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  }
+  
+  /* The navigation links inside the overlay */
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: var(--COLOR-DEF);
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+  }
+
+
+
+
+
+
+  /* When you mouse over the navigation links, change their color */
+
+
+  
+  /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+    
+  }
+
+.btn-submit{
+    padding: 0.9rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    display: block;
+    background-color: #8da890;
+    width: 100%;
+    border: none;
+    transition: all 200ms;
+
+
+}
+.btn-submit:hover{
+    opacity: 0.8;
+
+}
+
+.textarea{
+    resize: none;
+    height: 35vh;
+    width: 100%;
+    outline: none;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+form > p{
+    margin: 1rem;
+}
